@@ -1,0 +1,25 @@
+.form {
+  width: fit-content;
+  padding: 2rem;
+  border: 0.5px solid #878787;
+  border-radius: 10px;
+  min-width: 450px;
+}
+.formContainer {
+  text-align: left;
+}
+.formTitle {
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+}
+
+.formDescription {
+  font-weight: 400;
+  font-size: 16px;
+}
+.FormChildrenContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
