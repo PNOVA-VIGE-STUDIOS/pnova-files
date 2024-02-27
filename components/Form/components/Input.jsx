@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { FormContext } from '../page'
 
 export function Input({ label, name, placeholder, type }) {
-  const { formValues, setFormValues } = useContext(FormContext)
+  const { formValues, setFormValues, formErrors } = useContext(FormContext)
   const handleChange = (e) => {
     const { value } = e.target
     setFormValues((prevValues) => ({
@@ -21,13 +21,15 @@ export function Input({ label, name, placeholder, type }) {
         {label}
       </label>
       <input
-        className={styles.input}
+        className={`${formErrors[name] ? styles.inputError : styles.input}`}
         id={name}
         type={type}
         placeholder={placeholder}
         value={formValues[name] || ''}
         onChange={handleChange}
+        required
       />
+      {formErrors[name] && <p className={styles.error}>{formErrors[name]}</p>}
     </div>
   )
 }

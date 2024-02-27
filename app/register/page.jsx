@@ -5,13 +5,13 @@ import { useLoading } from '@/hooks/useLoading'
 
 export default function RegisterPage() {
   const { finishLoading, isLoading, startLoading } = useLoading()
-  const authFetch = useAuthFetch()
+  const authFetch = useAuthFetch(false, true)
   const register = async (formData) => {
     startLoading()
     await authFetch({
-      endPoint: 'register',
+      endPoint: 'users',
       formData,
-      redirectRouter: '/home'
+      redirectRouter: '/'
     })
     finishLoading()
   }
@@ -32,6 +32,12 @@ export default function RegisterPage() {
           name="lastName"
           type="text"
           placeholder="Ingrese su Apellido..."
+        />
+        <Form.Input
+          label="Usuario"
+          name="username"
+          type="text"
+          placeholder="Ingrese su Usuario..."
         />
         <Form.Input
           label="Email"

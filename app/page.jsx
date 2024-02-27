@@ -2,6 +2,7 @@
 import { Form } from '@/components/Form/page'
 import useAuthFetch from '@/hooks/useAuthFetch'
 import { useLoading } from '@/hooks/useLoading'
+import ActivateAccountPage from './activate'
 
 export default function LoginPage() {
   const { finishLoading, isLoading, startLoading } = useLoading()
@@ -17,9 +18,11 @@ export default function LoginPage() {
   }
   return (
     <>
+      <ActivateAccountPage />
       <Form
         title="Inicia Sesion"
         onSubmit={login}
+        isLogin={true}
       >
         <Form.Input
           label="Email"
